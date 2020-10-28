@@ -1,0 +1,154 @@
+{%  extends 'face_rec/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<div class="row">
+	<div class="col-md">
+
+		<div class="jumbotron" style="height:auto; background-color:#2a9d8f; margin:25px;">
+
+
+
+				<div class="jumbotron" style="margin:25px;">
+
+
+						<h5 style=";text-align:center;">Image Prediction ML App </h5><hr>
+
+
+					<form method="POST" enctype="multipart/form-data">
+
+						{% csrf_token %}
+
+
+
+						<div class="buutton">
+							<div class="button-wrap">
+								<label class ="new-button" for="upload"> Select Image</label>
+								<input id="upload" type="file" name="myfile" >
+							<div>
+						</div>
+
+
+						
+
+
+
+
+
+
+						<div class="result">
+							{% if show_img %}
+
+								<img src="{{ sike.img.url }}" class="img-thumbnail"><br><br>
+
+
+
+
+
+							{% endif  %}
+
+							{% if showing_default_upload__pic %}
+
+							<div clas="imgg"><img src="{% static 'images/lol.png' %}"  height="auto" width="100"><br><br></div>
+
+
+
+
+
+							{% endif  %}
+
+
+						</div>
+
+
+
+						<div class="buutton"><button type="submit" class="btn btn-primary">Predict</button><br><br></div>
+
+
+
+
+
+						<div class="result" >
+
+							{% if show_img %}
+
+								<div class="alert alert-success" role="alert">
+									The person is probabily is {{prdection_name}}
+								</div>
+
+							{% endif  %}
+
+							{% if if_no_img_alert %}
+								<div class="alert alert-danger" role="alert">
+ 									 Upload an image to Predict
+								</div>
+							{% endif  %}
+						</div>
+
+
+					</form>
+				</div>
+
+
+
+
+
+				<div class="jumbotron" style="height:auto; background-color:#264653; margin:25px;">
+					<div class="row">
+				  		<div class="col">
+							<img src="{% static 'images/roger.jpg' %}"  height="120" width="100">
+						</div>
+				  		<div class="col">
+							<img src="{% static 'images/maria.jpg' %}"  height="120" width="100">
+						</div>
+
+
+
+				  		<div class="col">
+							<img src="{% static 'images/virat.jpg' %}"  height="120" width="100">
+						</div>
+				  		<div class="col">
+							<img src="{% static 'images/serena.jpg' %}"  height="120" width="100">
+						</div>
+						<div class="col">
+							<img src="{% static 'images/messi.jpg' %}"  height="120" width="100">
+						</div>
+
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
